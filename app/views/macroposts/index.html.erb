@@ -1,0 +1,29 @@
+<h1>Listing macroposts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @macroposts.each do |macropost| %>
+      <tr>
+        <td><%= macropost.content %></td>
+        <td><%= macropost.user_id %></td>
+        <td><%= link_to 'Show', macropost %></td>
+        <td><%= link_to 'Edit', edit_macropost_path(macropost) %></td>
+        <td><%= link_to 'Destroy', macropost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Macropost', new_macropost_path %>
